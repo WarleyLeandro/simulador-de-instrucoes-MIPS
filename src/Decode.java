@@ -289,7 +289,7 @@ public class Decode {
                 break; 
                 
             default: 
-                System.out.println("instrução nao conhecida");
+                System.out.println("instruï¿½ï¿½o nao conhecida");
                 } 
         } 
 	
@@ -470,7 +470,7 @@ public class Decode {
             	return registerNumber;
                 
             default: 
-                System.out.println("Esse nome de registro não existe");
+                System.out.println("Esse nome de registro nï¿½o existe");
                 break;
                 }
 		return registerNumber;
