@@ -1,1 +1,1 @@
-# simulador-de-instruncoes-MIPS
+# simulador-de-instrucoes-MIPS
