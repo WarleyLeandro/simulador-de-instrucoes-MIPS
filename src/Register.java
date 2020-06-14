@@ -1,5 +1,39 @@
+import java.util.ArrayList;
 public class Register{
+	ArrayList<Register> registradores = new ArrayList<Register>();
     //São 32 registradores
+	public String nome;
+	public String instrucao;
+	public String localDate;
+
+	public void salvaDados(String instrucao, String dados, int indice){
+		Register reg = new Register();
+		String registra = reg.name(indice);
+		reg.nome = registra;
+		if(instrucao == " ") {
+            reg.instrucao = null;
+            reg.localDate = dados;
+            registradores.add(reg); 
+        } else if(dados == " ") {
+            reg.instrucao = instrucao;
+            reg.localDate = null;
+            registradores.add(reg); 
+        } else {
+            System.out.println("Dados inválidos!");        
+        }
+	}
+
+	
+	public void limpaDados(){
+		for(int i = 0; i<=registradores.size(); i++){
+			Register temp = registradores.get(i);
+			temp.nome = " ";
+			temp.localDate = " ";
+			temp.localDate = " ";
+		}
+	}
+	
+
 
     public static String name(int indice) {
 		String[] name = {
@@ -37,5 +71,13 @@ public class Register{
 				"$ra"
 		};
         return name[indice];
-    }
+	}
+
+
+	public ArrayList<Register> imprimeRegistradores() {
+
+		return registradores;
+	}
+	
+	
 }

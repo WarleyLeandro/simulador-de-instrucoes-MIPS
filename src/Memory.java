@@ -3,16 +3,38 @@ import java.util.ArrayList;
 public class Memory {
 
     public String endereco;
+    public String instrucao;
     public String dados;
     ArrayList<Memory> memory = new ArrayList<Memory>();
 
-    // salva o dado na memoria
-    public void salvaDados(String endereco, String dados) {
+    // salva o dado e instrução na memoria
+    public void salvaDados(String endereco, String instrucao, String dados) {
         Memory men = new Memory();
-        men.endereco = endereco;
-        men.dados = dados;
-        memory.add(men);
+        if(instrucao == " ") {
+            men.instrucao = null;
+            men.endereco = endereco;
+            men.dados = dados;
+            memory.add(men); 
+        } else if(dados == " ") {
+           men.endereco = endereco;
+            men.instrucao = instrucao;
+            men.dados = null;
+            memory.add(men); 
+        } else {
+            System.out.println("Dados inválidos!");        
+        }
 
+    }
+
+    // carrega a instrução da memória
+    public String carregaInstrucao(String buscaEnd) {
+        for (int i = 0; i < memory.size(); i++) {
+            Memory temp = memory.get(i);
+            if (temp.endereco == buscaEnd) {
+                return temp.instrucao;
+            }
+        }
+        return "Instrução não encontrada na memória";
     }
 
     // carrega o dado da memória
@@ -35,5 +57,8 @@ public class Memory {
     }
 
     // imprimir arquivo
+    public ArrayList<Memory> imprimeMemoria() {
+      return memory;
+    }
 
 }
