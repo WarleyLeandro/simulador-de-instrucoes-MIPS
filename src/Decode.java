@@ -1,5 +1,5 @@
+import java.io.IOException;
 
- 
 public class Decode {
 	
 	private static String instruction = null;
@@ -72,7 +72,7 @@ public class Decode {
 	
 	//Finding whats the opcode, funct and format of the core intruction set
 	
-	public static void decode (String instruction, String registro1, String registro2, String registro3){
+	public static void decode (String instruction, String registro1, String registro2, String registro3) throws IOException{
 		
 		String opcode=null;
 		String funct=null;
@@ -254,8 +254,7 @@ public class Decode {
                 /*INICIO DAS INSTRUCOES DESVIO INCOND*/
                 
             case "j": 
-                opcode = "000010"; 
-                
+                opcode = "000010";
                 Program.RegisterTypeJ(opcode, Decode.addressChanger(Decode.convertToBinary(registro1)));
                 
                 break; 
@@ -289,13 +288,12 @@ public class Decode {
                 break; 
                 
             default: 
-                System.out.println("instruï¿½ï¿½o nao conhecida");
+                System.out.println("instrução nao conhecida");
                 } 
         } 
 	
 	public static String addressChanger(String address) {
-			int number = Integer.parseInt(address);
-			address =	String.format("%026d" , number);
+			address =	String.format("%026d" , Long.valueOf(address));
 			return address;
 	}
 	
@@ -470,7 +468,7 @@ public class Decode {
             	return registerNumber;
                 
             default: 
-                System.out.println("Esse nome de registro nï¿½o existe");
+                System.out.println("Esse nome de registro não existe");
                 break;
                 }
 		return registerNumber;

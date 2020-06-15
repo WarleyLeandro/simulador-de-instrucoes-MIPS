@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -82,15 +84,15 @@ public class Program {
 	public static void main(String[] args) throws IOException {
 		String line=null;
 		String[] instruction = new String[4];
-		System.out.print("Ol√°, seja Bem-Vindo ao MIPS32-Decode \n 1- Digitar a instru√ß√£o \n 2- Usar um arquivo do computador \n");
+		System.out.print("Ol·, seja Bem-Vindo ao MIPS32-Decode \n 1- Digitar a instruÁ„o \n 2- Usar um arquivo do computador \n");
 		
-		System.out.print("Qual a op√ß√£o que deseja selecionar -> ");
+		System.out.print("Qual a opÁ„o que deseja selecionar -> ");
 		scanner = new Scanner(System.in);
 		int menu = scanner.nextInt();
 		
 		switch (menu) {
 			case 1:
-				System.out.print("Digite a instru√ß√£o: ");
+				System.out.print("Digite a instruÁ„o: ");
 				scanner = new Scanner(System.in);
 				String core = scanner.nextLine();
 				
@@ -125,7 +127,7 @@ public class Program {
 				break;
 				
 			case 2:
-				System.out.print("Digite o endere√ßo aonde est√° localizado o arquivo: ");
+				System.out.print("Digite o endereÁo aonde est· localizado o arquivo: ");
 				scanner = new Scanner(System.in);
 				String address = scanner.nextLine();
 				try {
@@ -167,7 +169,7 @@ public class Program {
 				break;
 				
 			default:
-				System.out.println("Essa escolha n√£o existe, por favor escolher uma nova escolha");
+				System.out.println("Essa escolha n„o existe, por favor escolher uma nova escolha");
 				break;
 		}
 		
